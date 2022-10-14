@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+    <selection name='sale.sale.order.sale.order.status.select'>
+        <option value='10'>Waiting</option>
+        <option value='12'>Confirmed</option>
+        <option value='20'>En attente de facturation</option>
+        <option value='30'>Cancelled</option>
+    </selection>
+
+    <selection name="sale.language.select">
+      <option value="FR">Français</option>
+      <option value="EN">English</option>
+      <option value="DE">Deutsch</option>
+    </selection>
+
+</object-views>

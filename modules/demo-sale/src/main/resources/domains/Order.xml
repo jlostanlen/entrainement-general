@@ -1,0 +1,17 @@
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+    <module name="sale" package="com.axelor.sale.db"/>
+
+
+    <entity name="Order">
+        <integer name="status" default="10" selection="sale.sale.order.sale.order.status.select"/>
+        <many-to-one name="customer" ref="com.axelor.contact.db.Contact"/>
+        <date name="orderDate" />
+        <date name="confirmDate"/>
+        <one-to-many name="orderLine" ref="OrderLine" mappedBy="order" />
+        <decimal name="amountHT"/>
+        <decimal name="amountTax"/>
+        <decimal name="amountTTC"/>
+        <string name="note" />
+
+    </entity>
+</domain-models>

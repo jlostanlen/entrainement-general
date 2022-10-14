@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+    <form title="Contact" id="sale-contact-form" name="contact-form" model="com.axelor.contact.db.Contact" width="large" extension="true" >
+       <extend target="panel[@name='infoPanel']">
+           <insert position="after">
+             <panel name="orderPanel">
+               <panel-dashlet action="action-view-display-customer-order" canSearch="true" colSpan="12"/>
+             </panel>
+             <panel-dashlet action="action.sale.total.amount" height="350" />
+           </insert>
+       </extend>
+    </form>
+
+
+    <chart name="chart.dashboard.total.by.customer.by.date" title="Total amount" >
+      <dataset type="jpql">
+      <![CDATA[
+      SELECT
+        SUM(self.amountTTC) as total_amount,
+        self.confirmDate as confirmation_date
+      FROM
+        Order as self
+      WHERE
+        customer.id = :id
+      GROUP BY
+      self.confirmDate
+      ]]>
+
+      </dataset>
+      <category key="confirmation_date" type="date"/>
+      <series key="total_amount" type="bar"/>
+    </chart>
+
+  <action-view name="action.sale.total.amount" title="Total amount">
+    <view type="chart" name="chart.dashboard.total.by.customer.by.date"/>
+  </action-view>
+
+<action-view name="action-view-display-customer-order" title="Customer order" model="com.axelor.sale.db.Order">
+  <view type="grid" name="order-grid"/>
+  <view type="form" name="order-form"/>
+  <domain>self.customer.id = :_customer</domain>
+  <context name="_customer" expr="eval: id"/>
+</action-view>
+
+</object-views>

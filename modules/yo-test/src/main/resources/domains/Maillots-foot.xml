@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+
+  <module name="decath" package="com.axelor.decath.db"/>
+
+  <entity name="MaillotsFoot" lang="java" >
+
+    <string name="taille" title="Taille"/>
+    <string name="club" title="Club"/>
+    <string name="categorie" title="Categorie"/>
+
+  </entity>
+</domain-models>

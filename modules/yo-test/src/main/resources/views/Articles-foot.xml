@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+ <!-- Maillots de foot -->
+  <grid model="com.axelor.decath.db.MaillotsFoot" title="Articles foot" name="articles-foot-grid" >
+    <field name="taille" />
+    <field name="club" />
+    <field name="categorie" />
+  </grid>
+  <form name="articles-foot-form" model="" title=""></form>
+
+
+
+</object-views>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+
+
+ <menuitem title="Decath" name="decath" icon="fa-address-book" left="true" top="true" icon-background="blue" order="-100"/>
+ <menuitem name="foot" title="Football" parent="decath" action="action-articles-foot"/>
+ <action-view title="Liste articles foot" name="action-articles-foot" model="com.axelor.decath.db.MaillotsFoot">
+    <view type="grid" name="articles-foot-grid"/>
+ </action-view>
+
+
+ 
+</object-views>

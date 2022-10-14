@@ -1,0 +1,5 @@
+rootProject.name = 'axelor-training'
+
+include "modules:demo-contact"
+include "modules:demo-sale"
+include "modules:yo-test"

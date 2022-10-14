@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+    <menuitem name="menu-sales-root" title="Sales" icon="fa-university" icon-background="yellow"/>
+    <menuitem name="menu-sales-orders" title="Orders" parent="menu-sales-root" action="action.order.view.all"/>
+    <menuitem name="menu-sales-orderLines" title="OrdersLines" parent="menu-sales-root" action="action.orderLines.view.all"/>
+    <menuitem name="menu-sales-products" title="Products" parent="menu-sales-root" action="action.products.view.all"/>
+    <menuitem name="menu-sales-taxes" title="Taxes" parent="menu-sales-root" action="action.taxes.view.all"/>
+
+    <action-view name="action.taxes.view.all" title="All taxes" model="com.axelor.sale.db.Tax">
+        <view type="grid" name="tax-grid"/>
+        <view type="form" name="tax-form"/>
+
+    </action-view>
+
+    <action-view name="action.products.view.all" title="All products" model="com.axelor.sale.db.Product">
+        <view type="grid" name="product-grid"/>
+        <view type="form" name="product-form"/>
+    </action-view>
+
+    <action-view name="action.orderLines.view.all" title="All orderLines" model="com.axelor.sale.db.OrderLine">
+        <view type="grid" name="orderLine-grid"/>
+        <view type="form" name="orderLine-form"/>
+    </action-view>
+
+    <action-view name="action.order.view.all" title="All orders" model="com.axelor.sale.db.Order">
+        <view type="grid" name="order-grid"/>
+        <view type="form" name="order-form"/>
+    </action-view>
+
+</object-views>

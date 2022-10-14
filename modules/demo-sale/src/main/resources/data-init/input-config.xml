@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<csv-inputs xmlns="http://axelor.com/xml/ns/data-import"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://axelor.com/xml/ns/data-import
+    http://axelor.com/xml/ns/data-import/data-import_5.4.xsd">
+
+ <input file="Taxes.csv" separator="," type="com.axelor.sale.db.Tax" search="self.code = :code" update="false" />
+
+ <input file="Product.csv" separator="," type="com.axelor.sale.db.Product" search="self.name = :name" update="false">
+   <bind to="tax"  column="tax" search="self.code = :tax" update="true"/>
+ </input>
+
+
+</csv-inputs>

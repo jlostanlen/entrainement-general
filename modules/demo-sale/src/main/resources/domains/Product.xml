@@ -1,0 +1,10 @@
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+    <module name="sale" package="com.axelor.sale.db"/>
+    <entity name="Product">
+        <string name="code" required ="true" unique="true" min="2"/>
+        <string name="name" required = "true" min="2"/>
+        <string name="description"/>
+        <decimal name="price" required="true" min="0.0"/>
+        <one-to-one ref="com.axelor.sale.db.Tax" name="tax" />
+    </entity>
+</domain-models>

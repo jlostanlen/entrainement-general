@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": [
+        "modules/demo-sale",
+        "modules/demo-contact",
+        "modules/yo-test"
+    ]
+}

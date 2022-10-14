@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+    <grid title="Taxes" name="tax-grid" model="com.axelor.sale.db.Tax">
+        <field name="code"/>
+        <field name="name"/>
+        <field name="rate"/>
+    </grid>
+    <form title="Tax" name="tax-form" model="com.axelor.sale.db.Tax">
+        <panel name="mainPanel" colSpan="12">
+            <field name="name" colSpan="12"/>
+            <field name="code" colSpan="3"/>
+            <field name="rate" colSpan="3"/>
+        </panel>
+    </form>
+</object-views>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+    <grid title="OrderLine" name="orderLine-grid" model="com.axelor.sale.db.OrderLine">
+        <field name="product"/>
+        <field name="price"/>
+        <field name="quantity"/>
+        <field name="totalPrice"/>
+        <field name="taxPrice"/>
+        <field name="finalPrice"/>
+    </grid>
+    <form title="OrderLine" name="orderLine-form" model="com.axelor.sale.db.OrderLine" onSave="action-condition-check-price">
+        <panel name="Overview">
+            <field name="product" colSpan="12" canNew="true" onChange="action-group-product-default-values" />
+            <field name="price" onChange="action-attrs-compute-values"/>
+            <field name="quantity" onChange="action-attrs-compute-values" />
+            <field name="taxRate" title="Tax rate" onChange="action-validate-order-line-tax,action-attrs-compute-values"/>
+            <field name="totalPrice"  readonly="true"/>
+            <field name="taxPrice"  readonly="true"/>
+            <field name="finalPrice"  readonly="true" />
+        </panel>
+    </form>
+
+
+    <action-group name="action-group-product-default-values">
+      <action name="action-attrs-get-product-price"/>
+      <!-- <action name="action-attrs-get-product-description"/> -->
+      <action name="action-attrs-set-default-quantity-to-one"/>
+    </action-group>
+
+   <action-attrs name="action-attrs-get-product-price">
+     <attribute name="value" for="price" expr="eval: product?.price "/>
+   </action-attrs>
+   <!-- product? check si product exists avant operation-->
+
+   <action-attrs name="action-attrs-get-product-tax">
+     <attribute name="value" for="taxRate" expr="eval: product?.tax?.rate"/>
+   </action-attrs>
+
+   <action-attrs name="action-attrs-set-default-quantity-to-one">
+     <attribute name="value" for="quantity" expr="1"/>
+   </action-attrs>
+
+  <action-validate name="action-validate-order-line-tax">
+    <alert message="La taxe est inférieur à 0" if="taxRate &lt;= 0" action="action-attrs-get-product-tax"/>
+  </action-validate>
+
+  <action-attrs name="action-attrs-compute-values">
+    <attribute name="value" for="totalPrice" expr="eval: quantity * price"/>
+    <attribute name="value" for="taxPrice" expr="eval: quantity * taxRate"/>
+    <attribute name="value" for="finalPrice" expr="eval: quantity * (taxRate + price) "/>
+  </action-attrs>
+
+<action-condition name="action-condition-check-price">
+  <check field="taxRate" if="taxRate &lt;= 1" error="La taxe doit être sup à 1"/>
+</action-condition>
+
+
+</object-views>
