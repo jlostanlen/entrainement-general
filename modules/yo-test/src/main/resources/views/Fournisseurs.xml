@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+
+
+
+<cards name="contact-card" css="rect-image" model="com.axelor.decath.db.Fournisseur" title="Fournisseurs" >
+  <field name="nom"/>
+  <field name="email"/>
+  <field name="telephone" />
+  <field name="photo"/>
+  <field name="service.nom" />
+  <template><![CDATA[
+    <div>
+      <div class="span4 card-image" style="height:100%; text-align:left">
+        <h1 style="font-size:20px; font-weight:bolder">{{nom}}</h1>
+        <img ng-if="photo" ng-src="{{$image(null, 'photo')}}">
+        <img ng-if="!photo" src="img/user.png">
+          <p style="font-weight:bolder">{{telephone}}<p>
+          <p style="font-weight:bolder">{{email}}</p>
+          <p style="font-weight:bolder">{{service.nom}}</p>
+      </div>
+    </div>
+  ]]>
+  </template>
+</cards>
+
+<form name="fournisseur-form" model="com.axelor.decath.db.Fournisseur" title="Modifier ou ajouter un fournisseur">
+  <field name="nom"/>
+  <field name="service" target-name="nom"/>
+  <field name="telephone"/>
+  <field name="email"/>
+  <field name="photo" widget="image"/>
+</form>
+
+</object-views>

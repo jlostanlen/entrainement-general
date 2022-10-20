@@ -5,12 +5,8 @@
 
   <module name="decath" package="com.axelor.decath.db"/>
 
-  <entity name="MaillotsFoot" lang="java" >
-
-    <string name="taille" title="Taille"/>
-    <string name="club" title="Club"/>
-    <string name="categorie" title="Categorie"/>
-    <decimal name="prix" title="Prix"/>
-    <boolean name="isEnfant" required="true" title="IsEnfant"/>
+  <entity name="Articles" lang="java" >
+    <many-to-one ref="com.axelor.decath.db.ChaussuresFoot" name="chaussuresFoot" title="Chaussures de foot"/>
+    <many-to-one ref="com.axelor.decath.db.MaillotsFoot" name="maillotsFoot" title="Maillots de foot"/>
   </entity>
 </domain-models>

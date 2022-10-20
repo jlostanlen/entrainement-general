@@ -3,5 +3,6 @@
         "modules/demo-sale",
         "modules/demo-contact",
         "modules/yo-test"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
