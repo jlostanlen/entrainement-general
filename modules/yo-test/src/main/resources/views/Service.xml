@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+
+
+  <form name="services-form" model="com.axelor.decath.db.Services" title="Ajouter ou modifier un service" width="large">
+    <field name="nom" />
+    <field name="nbEmp" />
+    <field name="dateCreation" widget="date"/>
+  </form>
+  <grid model="com.axelor.decath.db.Services" title="Services" name="services-grid" groupBy="dateCreation">
+    <field name="nom" />
+    <field name="nbEmp" />
+    <field name="dateCreation" />
+  </grid>
+
+
+
+
+
+</object-views>

@@ -5,12 +5,76 @@
 
 
 
- <menuitem title="Decath" name="decath" icon="fa-address-book" left="true" top="true" icon-background="blue" order="-100"/>
- <menuitem name="foot" title="Football" parent="decath" action="action-articles-foot"/>
- <action-view title="Liste articles foot" name="action-articles-foot" model="com.axelor.decath.db.MaillotsFoot">
-    <view type="grid" name="articles-foot-grid"/>
+ <menuitem title="Decath" name="decath" icon="fa-dashcube" left="true" top="true" icon-background="purple" order="-100"/>
+
+
+ <!--
+    MAGASIN
+   -->
+   <menuitem name="magasin" title="Magasin" parent="decath"/>
+ <menuitem name="foot" title="Football" parent="magasin" />
+ <!-- Maillots -->
+ <menuitem name="maillots-foot" title="Maillots" parent="foot" />
+<!-- Maillots enfant -->
+ <menuitem name="maillots-foot-enfant" title="Enfant" parent="maillots-foot" action="action-maillots-foot-enfant"/>
+ <action-view title="Liste articles foot" name="action-maillots-foot-enfant" model="com.axelor.decath.db.MaillotsFoot">
+    <view type="grid" name="maillots-foot-grid"/>
+    <view type="form" name="maillots-foot-form"/>
+    <domain>self.isEnfant = true</domain>
  </action-view>
+<!-- Maillots adulte -->
+<menuitem name="maillots-foot-adulte" title="Adulte" parent="maillots-foot" action="action-maillots-foot-adulte"/>
+<action-view title="Liste articles foot" name="action-maillots-foot-adulte" model="com.axelor.decath.db.MaillotsFoot">
+   <view type="grid" name="maillots-foot-grid"/>
+   <view type="form" name="maillots-foot-form"/>
+   <domain>self.isEnfant = false</domain>
+</action-view>
+<!-- Chaussures de foot -->
+ <menuitem name="chaussures-foot" title="Chaussures" parent="foot" />
+ <!-- Chaussures enfant -->
+ <menuitem name="chaussures-foot-enfant" title="Enfant" parent="chaussures-foot" action="action-chaussures-foot-enfant"/>
+<action-view title="Chaussures de foot" name="action-chaussures-foot-enfant" model="com.axelor.decath.db.ChaussuresFoot">
+   <view type="grid" name="chaussures-foot-grid"/>
+   <view type="form" name="chaussures-foot-form"/>
+   <domain>self.isEnfant = true</domain>
+</action-view>
+<!-- Chaussures adulte -->
+<menuitem name="chaussures-foot-adulte" title="Adulte" parent="chaussures-foot" action="action-chaussures-foot-adulte"/>
+<action-view title="Chaussures de foot" name="action-chaussures-foot-adulte" model="com.axelor.decath.db.ChaussuresFoot">
+   <view type="grid" name="chaussures-foot-grid"/>
+   <view type="form" name="chaussures-foot-form"/>
+   <domain>self.isEnfant = false</domain>
+</action-view>
 
 
- 
+
+<!--
+GESTION
+-->
+<menuitem name="gestion" title="Gestion" parent="decath"/>
+<!-- approvisionnement -->
+<menuitem name="approvisionnement" title="Approvisionnement" parent="gestion"/>
+<!-- Fournissuers -->
+<menuitem name="fournisseurs" title="Fournisseurs" parent="approvisionnement" action="action-fournisseurs"/>
+<action-view name="action-fournisseurs" title="Fournisseurs" model="com.axelor.decath.db.Fournisseur">
+   <view type="cards" name="contact-card" />
+   <view type="form" name="fournisseur-form"/>
+</action-view>
+
+<!-- Commandes -->
+<menuitem name="commandes" title="Commandes" parent="approvisionnement" action="action-creer-commande"/>
+<action-view title="Créer une commande" name="action-creer-commande" model="com.axelor.decath.db.Commande">
+   <view type="grid" name="commande-form"/>
+   <view type="form" name="commande-grid"/>
+
+</action-view>
+<!-- Services -->
+<menuitem name="services" title="Services" parent="gestion" action="action-services"/>
+<action-view title="Services" name="action-services" model="com.axelor.decath.db.Services">
+   <view type="form" name="services-form" />
+   <view type="grid" name="services-grid" />
+</action-view>
+
+
+
 </object-views>

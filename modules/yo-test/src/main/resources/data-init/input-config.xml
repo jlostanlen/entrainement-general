@@ -9,7 +9,23 @@
    <bind to="taille" column="taille"/>
    <bind to="club" column="club"/>
    <bind to="categorie" column="categorie"/>
+   <bind to="prix" column="prix"/>
+  <bind to="isEnfant" column="isEnfant"/>
  </input>
+
+ <input file="Chaussures-foot.csv" separator="," type="com.axelor.decath.db.ChaussuresFoot">
+  <bind to="pointure" column="pointure"/>
+  <bind to="marque" column="marque"/>
+  <bind to="libelle" column="libelle"/>
+  <bind to="categorie" column="categorie"/>
+  <bind to="prix" column="prix"/>
+  <bind to="isEnfant" column="isEnfant"/>
+</input>
+
+
+<input file="Categories.csv" separator="," type="com.axelor.decath.db.Categories">
+  <bind to="categorie" column="categorie"></bind>
+</input>
 
 
 
