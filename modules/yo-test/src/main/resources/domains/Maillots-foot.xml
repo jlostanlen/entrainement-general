@@ -5,12 +5,10 @@
 
   <module name="decath" package="com.axelor.decath.db"/>
 
-  <entity name="MaillotsFoot" lang="java" >
-
+  <entity name="MaillotsFoot" lang="java" extends="com.axelor.decath.db.Article" strategy="JOINED">
     <string name="taille" title="Taille"/>
     <string name="club" title="Club"/>
     <string name="categorie" title="Categorie"/>
-    <decimal name="prix" title="Prix"/>
     <boolean name="isEnfant" required="true" title="IsEnfant"/>
   </entity>
 </domain-models>

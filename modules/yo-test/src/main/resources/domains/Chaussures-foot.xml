@@ -5,13 +5,9 @@
 
   <module name="decath" package="com.axelor.decath.db"/>
 
-  <entity name="ChaussuresFoot" lang="java" >
-
+  <entity name="ChaussuresFoot" lang="java" extends="com.axelor.decath.db.Article" strategy="JOINED">
     <string name="pointure" title="Pointure"/>
-    <string name="marque" title="Marque"/>
-    <string name="libelle" title="Libelle"/>
     <string name="categorie" title="Categorie"/>
-    <decimal name="prix" title="Prix"/>
     <boolean name="isEnfant" required="true" title="IsEnfant"/>
   </entity>
 </domain-models>

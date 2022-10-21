@@ -33,6 +33,7 @@
   <field name="telephone"/>
   <field name="email"/>
   <field name="photo" widget="image"/>
+
 </form>
 
 </object-views>

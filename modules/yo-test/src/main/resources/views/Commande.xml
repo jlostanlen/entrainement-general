@@ -6,15 +6,27 @@
 
 
   <form name="commande-form" model="com.axelor.decath.db.Commande" title="Créer une commande" >
-        <field name="service"/>
-        <field name="article" colSpan="12" canNew="true"/>
+    <panel name="general">
+      <field name="libelle" widget="html"/>
+      <spacer />
+      <field name="service" onChange="action-attrs-service-fournisseur"/>
+      <field name="fournisseur" />
+      <field name="produit"></field>
+
+    </panel>
+    <panel name="produit">
+      <field name="article" colSpan="12" canNew="true"/>
+    </panel>
   </form>
   <grid model="com.axelor.decath.db.Commande" title="Commandes" name="commande-grid" >
     <field name="article" target-name="nom"/>
     <field name="libelle"/>
   </grid>
 
-
+  <action-attrs name="action-attrs-service-fournisseur">
+    <attribute name="domain" for="fournisseur"
+      expr="eval: &quot;self.id IN  (${service?.fournisseurList?.collect{it.id}.join(',')})&quot;"/>
+  </action-attrs>
 
 
 

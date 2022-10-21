@@ -5,8 +5,9 @@
 
   <module name="decath" package="com.axelor.decath.db"/>
 
-  <entity name="Articles" lang="java" >
-    <many-to-one ref="com.axelor.decath.db.ChaussuresFoot" name="chaussuresFoot" title="Chaussures de foot"/>
-    <many-to-one ref="com.axelor.decath.db.MaillotsFoot" name="maillotsFoot" title="Maillots de foot"/>
+  <entity name="Article" lang="java" >
+    <string name="nom" title="Nom"/>
+    <decimal name="prix" title="Prix"/>
+    <string name="marque" title="marque"/>
   </entity>
 </domain-models>

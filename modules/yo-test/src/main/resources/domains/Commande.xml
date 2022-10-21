@@ -9,6 +9,8 @@
     <string name="libelle" title="Libellé"/>
     <many-to-one ref="com.axelor.decath.db.Fournisseur" name="fournisseur" title="Fournisseur"/>
     <many-to-one ref="com.axelor.decath.db.Services" name="service" title="Service"/>
-    <many-to-many ref="com.axelor.decath.db.Articles" name="article" title="Article"/>
+    <many-to-many ref="com.axelor.decath.db.Article" name="article" title="Article"/>
   </entity>
+
+
 </domain-models>

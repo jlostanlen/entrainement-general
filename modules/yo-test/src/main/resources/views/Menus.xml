@@ -17,34 +17,40 @@
  <menuitem name="maillots-foot" title="Maillots" parent="foot" />
 <!-- Maillots enfant -->
  <menuitem name="maillots-foot-enfant" title="Enfant" parent="maillots-foot" action="action-maillots-foot-enfant"/>
- <action-view title="Liste articles foot" name="action-maillots-foot-enfant" model="com.axelor.decath.db.MaillotsFoot">
+ <action-view title="Maillots de foot pour enfant" name="action-maillots-foot-enfant" model="com.axelor.decath.db.MaillotsFoot">
     <view type="grid" name="maillots-foot-grid"/>
     <view type="form" name="maillots-foot-form"/>
     <domain>self.isEnfant = true</domain>
+   <context name="_enfant" expr="eval: id" />
+
  </action-view>
 <!-- Maillots adulte -->
 <menuitem name="maillots-foot-adulte" title="Adulte" parent="maillots-foot" action="action-maillots-foot-adulte"/>
-<action-view title="Liste articles foot" name="action-maillots-foot-adulte" model="com.axelor.decath.db.MaillotsFoot">
+<action-view title="Maillots de foot pour adulte" name="action-maillots-foot-adulte" model="com.axelor.decath.db.MaillotsFoot">
    <view type="grid" name="maillots-foot-grid"/>
    <view type="form" name="maillots-foot-form"/>
    <domain>self.isEnfant = false</domain>
+   <context name="_adulte" expr="eval: id" />
 </action-view>
 <!-- Chaussures de foot -->
  <menuitem name="chaussures-foot" title="Chaussures" parent="foot" />
  <!-- Chaussures enfant -->
  <menuitem name="chaussures-foot-enfant" title="Enfant" parent="chaussures-foot" action="action-chaussures-foot-enfant"/>
-<action-view title="Chaussures de foot" name="action-chaussures-foot-enfant" model="com.axelor.decath.db.ChaussuresFoot">
+<action-view title="Chaussures de foot pour enfant" name="action-chaussures-foot-enfant" model="com.axelor.decath.db.ChaussuresFoot">
    <view type="grid" name="chaussures-foot-grid"/>
    <view type="form" name="chaussures-foot-form"/>
    <domain>self.isEnfant = true</domain>
+   <context name="_enfant" expr="eval: id" />
 </action-view>
 <!-- Chaussures adulte -->
 <menuitem name="chaussures-foot-adulte" title="Adulte" parent="chaussures-foot" action="action-chaussures-foot-adulte"/>
-<action-view title="Chaussures de foot" name="action-chaussures-foot-adulte" model="com.axelor.decath.db.ChaussuresFoot">
+<action-view title="Chaussures de foot pour adulte" name="action-chaussures-foot-adulte" model="com.axelor.decath.db.ChaussuresFoot">
    <view type="grid" name="chaussures-foot-grid"/>
    <view type="form" name="chaussures-foot-form"/>
    <domain>self.isEnfant = false</domain>
+   <context name="_adulte" expr="eval: id" />
 </action-view>
+
 
 
 
@@ -62,11 +68,10 @@ GESTION
 </action-view>
 
 <!-- Commandes -->
-<menuitem name="commandes" title="Commandes" parent="approvisionnement" action="action-creer-commande"/>
-<action-view title="Créer une commande" name="action-creer-commande" model="com.axelor.decath.db.Commande">
-   <view type="grid" name="commande-form"/>
-   <view type="form" name="commande-grid"/>
-
+<menuitem name="commande-menu" title="Commandes" parent="approvisionnement" action="action-commandes"/>
+<action-view title="Commandes" name="action-commandes" model="com.axelor.decath.db.Commande">
+   <view type="form" name="commande-form"/>
+   <view type="grid" name="commande-grid"/>
 </action-view>
 <!-- Services -->
 <menuitem name="services" title="Services" parent="gestion" action="action-services"/>

@@ -7,34 +7,37 @@
 
  <!-- Maillots de foot -->
   <grid model="com.axelor.decath.db.MaillotsFoot" title="Maillots de foot" name="maillots-foot-grid" orderBy="taille">
+    <button onClick="action-essai" title="Essai !" name="btn-essai" css="btn-success" colSpan="4"/>
+    <field name="nom"/>
     <field name="taille" />
     <field name="club" />
-    <field name="categorie" />
     <field name="prix"/>
   </grid>
   <form name="maillots-foot-form" model="com.axelor.decath.db.MaillotsFoot" title="Ajouter ou modifier un maillot de foot" width="large">
-    <field name="taille"/>
+    <button onClick="action-essai" title="Essai !" name="btn-essai" css="btn-success" colSpan="4"/>
+    <!-- <field name="nom"/>
+    <field name="taille"/> -->
     <field name="club"/>
-    <field name="categorie"/>
     <field name="prix"/>
+    <field name="marque"/>
   </form>
 
   <!-- Chaussures de foot -->
   <grid name="chaussures-foot-grid" model="com.axelor.decath.db.ChaussuresFoot" title="Chaussures de foot" orderBy="pointure">
+    <field name="nom"/>
     <field name="pointure"/>
-    <field name="marque"/>
-    <field name="libelle"/>
-    <field name="categorie"/>
     <field name="prix"/>
+    <field name="marque"/>
   </grid>
   <form name="chaussures-foot-form" model="com.axelor.decath.db.ChaussuresFoot" title="Modifier ou ajouter une chaussure de foot">
+    <field name="nom"/>
     <field name="pointure"/>
     <field name="marque"/>
-    <field name="libelle"/>
-    <field name="categorie"/>
     <field name="prix"/>
   </form>
-
+  <action-view title="Essai" name="action-essai" model="com.axelor.decath.db.Fournisseur">
+    <view type="form" name="com.axelor.decath.db.Fournisseur"/>
+  </action-view>
 
 
 </object-views>

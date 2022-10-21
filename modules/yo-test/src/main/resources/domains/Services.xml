@@ -6,8 +6,10 @@
   <module name="decath" package="com.axelor.decath.db"/>
 
   <entity name="Services" lang="java" >
-    <string name="nom" title="Nom"/>
+    <string name="nom" title="Nom" namecolumn="true"/>
     <integer name="nbEmp" title="Nombre d'employés"/>
     <date name="dateCreation" title="Date de création" />
+    <one-to-many ref="com.axelor.decath.db.Fournisseur" name="fournisseurList"  mappedBy="service"/>
   </entity>
+
 </domain-models>

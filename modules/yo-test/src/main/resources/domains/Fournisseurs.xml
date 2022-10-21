@@ -6,7 +6,7 @@
   <module name="decath" package="com.axelor.decath.db"/>
 
   <entity name="Fournisseur" lang="java" >
-    <string name="nom" title="Nom"/>
+    <string name="nom" title="Nom" namecolumn="true"/>
     <string name="email" title="Email"></string>
     <string name="telephone" title="Telephone"></string>
     <many-to-one ref="com.axelor.decath.db.Services" name="service" title="Service" />
